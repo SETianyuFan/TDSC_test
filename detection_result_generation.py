@@ -21,7 +21,7 @@ for i, file in enumerate(files_sorted):
     img = nib.load(os.path.join(data_folder, file))
     data = img.get_fdata()
 
-    coordZ, coordY, coordX = np.where(data == 1)
+    coordZ, coordX, coordY = np.where(data == 1)
 
     x_length = coordX.max() - coordX.min()
     y_length = coordY.max() - coordY.min()
@@ -34,4 +34,4 @@ for i, file in enumerate(files_sorted):
 
 # 转化为DataFrame并保存为csv文件
 df = pd.DataFrame(result, columns=['public_id', 'coordX', 'coordY', 'coordZ', 'x_length', 'y_length', 'z_length', 'probability'])
-df.to_csv("output2.csv", index=False)
+df.to_csv("output3.csv", index=False)
